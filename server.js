@@ -2,6 +2,9 @@
 // our dependencies
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
+
+// const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -17,9 +20,16 @@ if(process.env.NODE_ENV === "production") {
 // API routes here
 
 // Every other request will be sent to the React app
+// not sure if this will be necessary
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, ".client/build/index.html"));
 });
+
+// If deployed, use the deployed database. Otherwise use the local googleBooks database
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googleBooks";
+
+// Connect to the Mongo DB
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // start our port
 app.listen(PORT, () => {
