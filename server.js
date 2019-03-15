@@ -2,7 +2,7 @@
 // activity 11
 // our dependencies
 const express = require("express");
-// const path = require("path");
+const logger = require("morgan");
 const routes = require("./routes");
 const mongoose = require("mongoose");
 
@@ -10,7 +10,11 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Use morgan logger for logging http requests
+// this logger is actually very useful
+app.use(logger("dev"));
 // define middleware here
+// Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
