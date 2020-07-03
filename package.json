@@ -19,15 +19,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
     "axios": "^0.18.1",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.4.19",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.9.21",
+    "morgan": "^1.10.0"
   },
   "bugs": {
     "url": "https://github.com/melher39/google-books-search-react/issues"
